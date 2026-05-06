@@ -1296,21 +1296,10 @@
   </div>
 </section>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // ─── Configuration EmailJS ───────────────────────────────────────────────
-  // 1. Créez un compte sur https://www.emailjs.com (gratuit jusqu'à 200 emails/mois)
-  // 2. Ajoutez un service Gmail et notez le "Service ID"
-  // 3. Créez un template avec les variables : {{nom}}, {{prenom}}, {{from_email}}, {{message}}
-  //    et configurez "To Email" sur idrissamassaly09@gmail.com
-  // 4. Remplacez les valeurs ci-dessous par vos vraies clés
-  const EMAILJS_PUBLIC_KEY  = 'HvRyFXH0880aIctYq';   // Account > API Keys
-  const EMAILJS_SERVICE_ID  = 'service_wy0fgo5';   // Email Services
-  const EMAILJS_TEMPLATE_ID = 'template_3oxiion';  // Email Templates
-  // ────────────────────────────────────────────────────────────────────────
-
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  // Remplacez VOTRE_ID_FORMSPREE par votre ID obtenu sur formspree.io
+  // Ex : https://formspree.io/f/xpwzgkdo  →  ID = xpwzgkdo
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeenknlz';
 
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -1323,27 +1312,28 @@
     status.className = 'form-status';
     status.textContent = '';
 
-    const params = {
-      nom:        document.getElementById('cf-nom').value.trim(),
-      prenom:     document.getElementById('cf-prenom').value.trim(),
-      from_email: document.getElementById('cf-email').value.trim(),
-      message:    document.getElementById('cf-message').value.trim(),
-    };
-
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-      .then(() => {
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(res => {
+      if (res.ok) {
         status.textContent = '✓ Message envoyé';
         status.className = 'form-status success visible';
         document.getElementById('contact-form').reset();
-        btn.querySelector('span').textContent = 'Envoyer';
-        btn.disabled = false;
-      })
-      .catch(() => {
-        status.textContent = '✗ Erreur — réessayez';
-        status.className = 'form-status error visible';
-        btn.querySelector('span').textContent = 'Envoyer';
-        btn.disabled = false;
-      });
+      } else {
+        return res.json().then(data => { throw data; });
+      }
+    })
+    .catch(() => {
+      status.textContent = '✗ Erreur — réessayez';
+      status.className = 'form-status error visible';
+    })
+    .finally(() => {
+      btn.querySelector('span').textContent = 'Envoyer';
+      btn.disabled = false;
+    });
   });
 </script>
 
