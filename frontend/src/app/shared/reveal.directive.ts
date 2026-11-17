@@ -11,7 +11,7 @@ export class RevealDirective {
     const destroyRef = inject(DestroyRef);
 
     afterNextRender(() => {
-      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      if (typeof IntersectionObserver === 'undefined' || el.getBoundingClientRect().top < window.innerHeight) return;
       el.classList.add('reveal');
       const observer = new IntersectionObserver(
         ([entry]) => {

@@ -20,7 +20,7 @@ export class HeroSphere {
 
   constructor() {
     afterNextRender(async () => {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (typeof matchMedia !== 'function' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const canvas = this.canvas().nativeElement;
       const { startSphere } = await import('./sphere-scene');
       const stop = startSphere(canvas);

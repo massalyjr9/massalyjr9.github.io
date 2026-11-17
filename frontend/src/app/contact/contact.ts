@@ -29,6 +29,7 @@ export class Contact {
   constructor() {
     const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
     afterNextRender(() => {
+      if (typeof IntersectionObserver === 'undefined') return;
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
