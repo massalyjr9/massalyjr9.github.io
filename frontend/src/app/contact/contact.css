@@ -1,0 +1,131 @@
+.intro {
+  max-width: 620px;
+  margin: -40px 0 56px;
+  font-size: 21px;
+  font-style: italic;
+  color: var(--paper-dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.form {
+  display: grid;
+  gap: 28px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+}
+label span {
+  color: var(--mute);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+input,
+textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(200, 165, 92, 0.4);
+  padding: 10px 0;
+  color: var(--paper);
+  font: inherit;
+  font-size: 20px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold-pale);
+}
+[aria-invalid='true'] {
+  border-bottom-color: var(--error);
+}
+.err {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--error);
+}
+
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+.status {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--paper-dim);
+}
+.ok {
+  color: var(--ok);
+}
+.ko {
+  color: var(--error);
+}
+.ko a {
+  color: var(--paper);
+}
+
+.aside {
+  display: grid;
+  border-top: 1px solid var(--rule);
+}
+.channel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  font-size: 22px;
+  font-style: italic;
+  transition: color 0.3s;
+}
+.channel span {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+}
+.channel:hover {
+  color: var(--gold-pale);
+}
+
+@media (max-width: 900px) {
+  .grid,
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

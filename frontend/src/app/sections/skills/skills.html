@@ -1,0 +1,47 @@
+<section class="section paper" id="competences" aria-labelledby="competences-title">
+  <div class="section-inner">
+    <p class="label">03 — Compétences</p>
+    <h2 class="section-title" id="competences-title">Stack <em>technique</em>.</h2>
+
+    <div class="tiers">
+      @for (tier of tiers; track tier.level; let i = $index) {
+        <div class="tier" appReveal>
+          <h3><span class="idx">·0{{ i + 1 }}</span>{{ tier.level }}</h3>
+          <p class="hint">{{ tier.hint }}</p>
+          <ul class="tags">
+            @for (skill of tier.skills; track skill) {
+              <li>{{ skill }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+
+    <div class="extra" appReveal>
+      <div>
+        <h3>Façon de travailler</h3>
+        <ul class="plain">
+          @for (w of ways; track w) {
+            <li>{{ w }}</li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h3>Formation</h3>
+        <ul class="plain">
+          @for (e of education; track e.degree) {
+            <li><strong>{{ e.year }}</strong> — {{ e.degree }}<br /><span>{{ e.school }}</span></li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h3>Langues</h3>
+        <ul class="plain">
+          @for (l of languages; track l) {
+            <li>{{ l }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

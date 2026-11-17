@@ -1,0 +1,95 @@
+.paper {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: 0;
+}
+.paper .label {
+  color: var(--gold-deep);
+}
+.paper .label::before {
+  background: var(--gold-deep);
+}
+.paper .section-title em {
+  color: var(--gold-deep);
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.tier {
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.tier:nth-child(2) {
+  border-top-color: rgba(13, 12, 10, 0.55);
+}
+.tier:nth-child(3) {
+  border-top: 1px dashed rgba(13, 12, 10, 0.45);
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.idx {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin-right: 8px;
+}
+.hint {
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(13, 12, 10, 0.7);
+  margin: 6px 0 16px;
+}
+.tags {
+  list-style: none;
+}
+.tags li {
+  font-size: 23px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.tier:nth-child(3) .tags li {
+  color: rgba(13, 12, 10, 0.72);
+}
+
+.extra {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(13, 12, 10, 0.15);
+}
+.plain {
+  list-style: none;
+  margin-top: 12px;
+}
+.plain li {
+  padding: 4px 0;
+  font-size: 18px;
+}
+.plain strong {
+  font-weight: 500;
+}
+.plain span {
+  font-style: italic;
+  color: rgba(13, 12, 10, 0.7);
+}
+
+@media (max-width: 900px) {
+  .tiers,
+  .extra {
+    grid-template-columns: 1fr;
+  }
+}

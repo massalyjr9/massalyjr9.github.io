@@ -1,0 +1,52 @@
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <app-hero-sphere />
+
+  <div class="hero-content">
+    <p class="eyebrow">{{ profile.title }}</p>
+    <h1 id="hero-title">
+      <span class="line"><span>Idrissa</span></span>
+      <span class="line"><span><em>Massaly</em>.</span></span>
+    </h1>
+    <p class="tagline">
+      Applications métier en <strong>Spring Boot</strong> et <strong>Angular</strong>, de l'API aux écrans,
+      testées et livrées en continu.
+    </p>
+    <p class="experience">
+      {{ experience }} d'expérience cumulée — freelance, alternance et stages.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" [href]="profile.cvUrl" download>
+        Télécharger mon CV
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14" /></svg>
+      </a>
+      <a class="btn" href="#projets">Voir les projets</a>
+    </div>
+
+    <dl class="meta">
+      <div><dt>Basé à</dt><dd>{{ profile.city }}</dd></div>
+      <div><dt>Recherche</dt><dd>{{ profile.seeking }}</dd></div>
+      <div>
+        <dt>Statut</dt>
+        <dd>
+          @if (profile.available) {
+            <span class="dot" aria-hidden="true"></span>Disponible
+          } @else {
+            En poste
+          }
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <figure class="portrait">
+    <img
+      src="portrait.webp"
+      width="800"
+      height="1200"
+      alt="Portrait d'Idrissa Massaly"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </figure>
+</section>

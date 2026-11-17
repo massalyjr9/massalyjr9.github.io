@@ -1,0 +1,41 @@
+<section class="section" id="parcours" aria-labelledby="parcours-title">
+  <div class="section-inner">
+    <p class="label">02 — Parcours</p>
+    <h2 class="section-title" id="parcours-title">Parcours <em>professionnel</em>.</h2>
+    <p class="summary">
+      {{ items.length }} missions, {{ total }} d'expérience cumulée. Chaque mission indique son type de contrat.
+    </p>
+
+    <ol class="timeline">
+      @for (exp of items; track exp.company) {
+        <li class="row" appReveal>
+          <div class="when">
+            <p class="period">{{ exp.period }}</p>
+            <p class="duration">{{ exp.duration }}</p>
+          </div>
+          <div class="who">
+            <span class="badge" [attr.data-contract]="exp.contract">{{ exp.contract }}</span>
+            <h3>{{ exp.role }}</h3>
+            <p class="company">{{ exp.company }} <span>· {{ exp.place }}</span></p>
+            <ul class="chips" aria-label="Technologies">
+              @for (tech of exp.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+          </div>
+          <div class="what">
+            <p class="context">{{ exp.context }}</p>
+            <ul class="bullets">
+              @for (a of exp.achievements; track a) {
+                <li>{{ a }}</li>
+              }
+              @for (r of exp.results; track r) {
+                <li class="result">{{ r }}</li>
+              }
+            </ul>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

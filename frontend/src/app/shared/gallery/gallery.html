@@ -1,0 +1,33 @@
+<div class="gallery" role="region" aria-roledescription="carrousel" [attr.aria-label]="label()">
+  <div class="track" #track tabindex="0" (scroll)="onScroll()" (keydown)="onKeydown($event)">
+    @for (src of images(); track src; let i = $index) {
+      <figure class="slide" role="group" aria-roledescription="diapositive" [attr.aria-label]="(i + 1) + ' sur ' + images().length">
+        <img
+          [src]="src"
+          width="864"
+          height="1080"
+          [attr.loading]="i === 0 ? null : 'lazy'"
+          [alt]="label() + ' — diapositive ' + (i + 1) + ' sur ' + images().length"
+        />
+      </figure>
+    }
+  </div>
+
+  <div class="controls">
+    <button type="button" class="nav" (click)="go(current() - 1)" aria-label="Diapositive précédente">←</button>
+    <ol class="dots">
+      @for (src of images(); track src; let i = $index) {
+        <li>
+          <button
+            type="button"
+            [class.active]="i === current()"
+            [attr.aria-current]="i === current() ? 'true' : null"
+            [attr.aria-label]="'Aller à la diapositive ' + (i + 1)"
+            (click)="go(i)"
+          ></button>
+        </li>
+      }
+    </ol>
+    <button type="button" class="nav" (click)="go(current() + 1)" aria-label="Diapositive suivante">→</button>
+  </div>
+</div>

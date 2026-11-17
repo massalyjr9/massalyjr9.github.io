@@ -1,0 +1,74 @@
+<section class="section" id="projets" aria-labelledby="projets-title">
+  <div class="section-inner">
+    <p class="label">01 — Projets</p>
+    <h2 class="section-title" id="projets-title">Ce que j'ai <em>construit</em>.</h2>
+
+    <div class="featured">
+      @for (project of featured; track project.name; let i = $index) {
+        <article class="card" appReveal>
+          @if (project.gallery?.length) {
+            <app-gallery class="shot-gallery" [images]="project.gallery!" [label]="'Présentation de ' + project.name" />
+          } @else if (project.image) {
+            <img class="shot" [src]="project.image" width="1200" height="750" loading="lazy" [alt]="'Capture d’écran de ' + project.name" />
+          } @else {
+            <div class="shot placeholder" aria-hidden="true">
+              <span>{{ project.name }}</span>
+            </div>
+          }
+          <div class="body">
+            <p class="num">
+              N° {{ (i + 1).toString().padStart(2, '0') }}
+              @if (project.year) { · {{ project.year }} }
+            </p>
+            <h3>{{ project.name }}</h3>
+            <p class="tagline">{{ project.tagline }}</p>
+            <p class="desc">{{ project.description }}</p>
+            <ul class="highlights">
+              @for (h of project.highlights; track h) {
+                <li>{{ h }}</li>
+              }
+            </ul>
+            <ul class="chips" aria-label="Technologies">
+              @for (tech of project.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+            <p class="links">
+              @if (project.demoUrl) {
+                <a class="link-arrow" [href]="project.demoUrl" target="_blank" rel="noopener">Démo ↗</a>
+              }
+              @if (project.repoUrl) {
+                <a class="link-arrow" [href]="project.repoUrl" target="_blank" rel="noopener">Code sur GitHub ↗</a>
+              } @else if (project.repoPrivate) {
+                <span class="private">Dépôt privé — code présenté sur demande</span>
+              }
+            </p>
+          </div>
+        </article>
+      }
+    </div>
+
+    @if (others.length) {
+      <h3 class="others-title" appReveal>Autres réalisations</h3>
+      <ul class="others" appReveal>
+        @for (project of others; track project.name) {
+          <li>
+            <div>
+              <strong>{{ project.name }}</strong>
+              <span>{{ project.tagline }}</span>
+            </div>
+            <span class="others-stack">{{ project.stack.join(' · ') }}</span>
+            <span class="others-links">
+              @if (project.demoUrl) {
+                <a class="link-arrow" [href]="project.demoUrl" target="_blank" rel="noopener">Démo ↗</a>
+              }
+              @if (project.repoUrl) {
+                <a class="link-arrow" [href]="project.repoUrl" target="_blank" rel="noopener">Code ↗</a>
+              }
+            </span>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</section>
