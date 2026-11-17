@@ -24,8 +24,13 @@ img.shot {
 }
 .shot-gallery {
   align-self: start;
+  min-width: 0;
+  width: calc(100% - 2 * clamp(16px, 3vw, 32px));
+  margin: clamp(16px, 3vw, 32px);
+}
+.shot-gallery.portrait {
   width: min(calc(100% - 2 * clamp(16px, 3vw, 32px)), 440px);
-  margin: clamp(16px, 3vw, 32px) auto;
+  margin-inline: auto;
 }
 .placeholder {
   width: 100%;

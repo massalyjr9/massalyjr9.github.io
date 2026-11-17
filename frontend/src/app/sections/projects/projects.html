@@ -6,8 +6,15 @@
     <div class="featured">
       @for (project of featured; track project.name; let i = $index) {
         <article class="card" appReveal>
-          @if (project.gallery?.length) {
-            <app-gallery class="shot-gallery" [images]="project.gallery!" [label]="'Présentation de ' + project.name" />
+          @if (project.gallery; as g) {
+            <app-gallery
+              class="shot-gallery"
+              [class.portrait]="g.height > g.width"
+              [images]="g.images"
+              [width]="g.width"
+              [height]="g.height"
+              [label]="'Aperçu de ' + project.name"
+            />
           } @else if (project.image) {
             <img class="shot" [src]="project.image" width="1200" height="750" loading="lazy" [alt]="'Capture d\'écran de ' + project.name" />
           } @else {

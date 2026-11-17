@@ -4,10 +4,10 @@
       <figure class="slide" role="group" aria-roledescription="diapositive" [attr.aria-label]="(i + 1) + ' sur ' + images().length">
         <img
           [src]="src"
-          width="864"
-          height="1080"
+          [width]="width()"
+          [height]="height()"
           [attr.loading]="i === 0 ? null : 'lazy'"
-          [alt]="label() + ', diapositive ' + (i + 1) + ' sur ' + images().length"
+          [alt]="label() + ', image ' + (i + 1) + ' sur ' + images().length"
         />
       </figure>
     }

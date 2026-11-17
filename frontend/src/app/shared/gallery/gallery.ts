@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, input, signal, viewChild } from '@angular/core';
 
 /**
- * Carrousel d'images (slides au format portrait).
+ * Carrousel d'images (slides ou captures d'écran).
  * Basé sur le défilement natif + scroll-snap : il reste utilisable sans JavaScript
  * (HTML pré-rendu) et au doigt sur mobile. Les boutons et points ne font que piloter le défilement.
  */
@@ -14,6 +14,9 @@ import { ChangeDetectionStrategy, Component, ElementRef, input, signal, viewChil
 export class Gallery {
   readonly images = input.required<string[]>();
   readonly label = input.required<string>();
+  /** Dimensions des images : elles fixent le format (portrait ou paysage). */
+  readonly width = input(864);
+  readonly height = input(1080);
 
   protected readonly current = signal(0);
   private readonly track = viewChild.required<ElementRef<HTMLElement>>('track');

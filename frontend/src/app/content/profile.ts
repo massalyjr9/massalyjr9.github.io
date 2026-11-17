@@ -23,6 +23,12 @@ export interface Experience {
   results: string[];
 }
 
+export interface Gallery {
+  images: string[];
+  width: number;
+  height: number;
+}
+
 export interface Project {
   name: string;
   year?: number;
@@ -36,8 +42,8 @@ export interface Project {
   demoUrl?: string;
   /** Capture d'écran dans `public/projects/` (WebP, 1200×750 conseillé). */
   image?: string;
-  /** Diaporama (slides portrait 4:5, WebP 864×1080) : remplace `image` dans la carte. */
-  gallery?: string[];
+  /** Carrousel affiché à la place de `image` (WebP, toutes les images au même format). */
+  gallery?: Gallery;
   featured: boolean;
   /** Mettre à `false` tant que les liens et la description ne sont pas prêts. */
   visible: boolean;
@@ -131,6 +137,10 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
+/** `pages('midyk/page', 3)` → ['projects/midyk/page-1.webp', …, 'projects/midyk/page-3.webp'] */
+const pages = (prefix: string, count: number) =>
+  Array.from({ length: count }, (_, i) => `projects/${prefix}-${i + 1}.webp`);
+
 export const PROJECTS: Project[] = [
   {
     name: "LET'S GO DRIVE",
@@ -150,6 +160,7 @@ export const PROJECTS: Project[] = [
     repoPrivate: true,
     demoUrl: 'https://letsgodrive.store',
     image: 'projects/letsgodrive.webp',
+    gallery: { images: pages('letsgodrive/page', 7), width: 1200, height: 750 },
     featured: true,
     visible: true,
   },
@@ -170,6 +181,7 @@ export const PROJECTS: Project[] = [
     repoPrivate: true,
     demoUrl: 'https://www.midyk-store.com',
     image: 'projects/midyk.webp',
+    gallery: { images: pages('midyk/page', 10), width: 1200, height: 750 },
     featured: true,
     visible: true,
   },
@@ -189,7 +201,7 @@ export const PROJECTS: Project[] = [
     repoPrivate: true,
     demoUrl: 'https://senludo.onrender.com/accueil',
     image: 'projects/senludo.webp',
-    gallery: [1, 2, 3, 4, 5, 6].map((n) => `projects/senludo/slide-${n}.webp`),
+    gallery: { images: pages('senludo/slide', 6), width: 864, height: 1080 },
     featured: true,
     visible: true,
   },
