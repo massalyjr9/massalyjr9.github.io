@@ -206,23 +206,6 @@ export const PROJECTS: Project[] = [
     visible: true,
   },
   {
-    name: 'Gestion de stocks',
-    year: 2026,
-    tagline: 'Application full stack avec gestion des rôles.',
-    description:
-      'Gestion de produits avec rôles ADMIN / USER et détection automatique du stock bas.',
-    highlights: [
-      'Tout utilisateur connecté peut consulter, seuls les ADMIN peuvent modifier (Spring Security).',
-      'Angular 21 en composants standalone et signals, formulaires réactifs validés.',
-      'Docker Compose (API, front, MongoDB) et intégration continue GitHub Actions.',
-      'Tests unitaires du service et du contrôleur (JUnit 5, Mockito) et du front.',
-    ],
-    stack: ['Java 21', 'Spring Boot 4', 'Spring Security', 'MongoDB', 'Angular 21', 'Docker', 'GitHub Actions'],
-    repoUrl: 'https://github.com/massalyjr9/gestion-de-stocks',
-    featured: true,
-    visible: true,
-  },
-  {
     name: 'Ce portfolio',
     year: 2026,
     tagline: 'Le site sur lequel vous êtes.',
