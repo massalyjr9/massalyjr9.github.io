@@ -84,7 +84,7 @@ export const EXPERIENCES: Experience[] = [
   {
     role: 'Développeur Full Stack Java / Angular',
     contract: 'Alternance',
-    company: 'MetropoliTan — Porte du Jura',
+    company: 'MetropoliTan (Porte du Jura)',
     place: 'Montbéliard',
     start: '2023-09',
     end: '2024-09',
@@ -95,7 +95,7 @@ export const EXPERIENCES: Experience[] = [
       'Persistance Hibernate (JPA) et participation à la modélisation du schéma de données.',
       'Livraisons en sprints Scrum de 2 semaines, revues de code croisées systématiques.',
     ],
-    results: ['Service en production auprès des usagers, maintenu stable par le suivi des anomalies.'],
+    results: ["Service en production, utilisé par les habitants de l'agglomération."],
   },
   {
     role: 'Développeur Full Stack Java / Angular',
@@ -124,7 +124,7 @@ export const EXPERIENCES: Experience[] = [
     stack: ['Java', 'Spring Security', 'Angular'],
     achievements: [
       'Application de gestion de stocks complète (Java / Angular) remplaçant le suivi manuel.',
-      'Gestion des rôles et du contrôle d’accès avec Spring Security.',
+      "Gestion des rôles et des droits d'accès avec Spring Security.",
       'Tests unitaires et documentation technique.',
     ],
     results: [],
@@ -137,13 +137,13 @@ export const PROJECTS: Project[] = [
     year: 2026,
     tagline: 'Location de voitures à Dakar, réservation et acompte en ligne.',
     description:
-      "Site en production pour une agence de location : catalogue filtrable, réservation en ligne, " +
-      'paiement de l’acompte par Wave ou Orange Money et espace de gestion pour l’agence.',
+      "Site en production pour une agence de location. Les clients filtrent le catalogue, réservent en ligne " +
+      "et paient l'acompte par Wave ou Orange Money. L'agence gère tout depuis son espace.",
     highlights: [
-      'Disponibilité en temps réel : contrôle des chevauchements de dates, prix calculé selon la durée et les options.',
-      'Paiement mobile : seul un webhook à signature HMAC vérifiée confirme un acompte, traitement idempotent, ' +
-        'dates bloquées 30 minutes puis libérées si le paiement n’arrive pas.',
-      'Espace agence : comptes nominatifs, statuts de réservation avec historique, gestion de la flotte.',
+      'Vérification des disponibilités (pas de chevauchement de dates), prix calculé selon la durée et les options.',
+      "L'acompte n'est validé que par le webhook du paiement, avec vérification de la signature HMAC. " +
+        "Les dates sont bloquées 30 minutes puis libérées si le paiement n'arrive pas.",
+      'Espace agence avec comptes nominatifs, historique des réservations et gestion de la flotte.',
       'Déployé sur un VPS avec Docker Compose (PostgreSQL, API, SSR Angular) derrière Caddy pour le HTTPS.',
     ],
     stack: ['Java 17', 'Spring Boot 3.5', 'Spring Security', 'JPA', 'PostgreSQL', 'Angular 21', 'Docker', 'Caddy'],
@@ -156,13 +156,13 @@ export const PROJECTS: Project[] = [
   {
     name: 'MIDYK Wellness',
     year: 2026,
-    tagline: 'Boutique en ligne d’une marque sénégalaise que j’ai cofondée.',
+    tagline: "Boutique en ligne d'une marque sénégalaise que j'ai cofondée.",
     description:
-      'E-commerce de serviettes hygiéniques lavables : vitrine, boutique, compte client et panel d’administration. ' +
+      'E-commerce de serviettes hygiéniques lavables avec vitrine, boutique, compte client et back-office. ' +
       'Je suis cofondateur de la marque, en charge du digital.',
     highlights: [
-      'API Spring Boot 4 / Java 21 : authentification JWT avec refresh token en cookie HttpOnly.',
-      'Schéma PostgreSQL versionné avec Flyway, tests d’intégration avec Testcontainers.',
+      'Authentification JWT avec refresh token en cookie HttpOnly (Spring Boot 4, Java 21).',
+      "Schéma PostgreSQL versionné avec Flyway, tests d'intégration avec Testcontainers.",
       'Front React + Vite + Tailwind, testé avec Vitest.',
       'Front sur Vercel, API sur Render, base PostgreSQL sur Neon.',
     ],
@@ -178,10 +178,10 @@ export const PROJECTS: Project[] = [
     year: 2026,
     tagline: 'Le Ludo aux règles sénégalaises, sur mobile et en ligne.',
     description:
-      'Jeu mobile Android / iOS : contre un bot, entre amis sur le même téléphone, ou en ligne. ' +
-      "Les règles locales (prison, blocages, capture dans la maison adverse) sont codées dans un moteur unique.",
+      "Jeu mobile Android / iOS. On peut jouer contre l'ordi, entre amis sur le même téléphone ou en ligne. " +
+      'Toutes les règles locales (prison, blocages, capture dans la maison adverse) sont gérées par le même moteur.',
     highlights: [
-      "Moteur de règles en TypeScript pur, partagé par l'application et le serveur : il est le seul arbitre.",
+      "Moteur de règles en TypeScript partagé entre l'application et le serveur, qui valide chaque coup.",
       'Application Ionic + Angular + Capacitor pour Android et iOS.',
       'Parties en ligne en temps réel avec Node.js et Socket.IO.',
     ],
@@ -196,11 +196,11 @@ export const PROJECTS: Project[] = [
   {
     name: 'Gestion de stocks',
     year: 2026,
-    tagline: 'Application full stack sécurisée, conteneurisée et testée.',
+    tagline: 'Application full stack avec gestion des rôles.',
     description:
       'Gestion de produits avec rôles ADMIN / USER et détection automatique du stock bas.',
     highlights: [
-      'Spring Security : lecture pour tout utilisateur connecté, écriture réservée aux ADMIN.',
+      'Tout utilisateur connecté peut consulter, seuls les ADMIN peuvent modifier (Spring Security).',
       'Angular 21 en composants standalone et signals, formulaires réactifs validés.',
       'Docker Compose (API, front, MongoDB) et intégration continue GitHub Actions.',
       'Tests unitaires du service et du contrôleur (JUnit 5, Mockito) et du front.',
@@ -213,11 +213,11 @@ export const PROJECTS: Project[] = [
   {
     name: 'Ce portfolio',
     year: 2026,
-    tagline: 'Un site vitrine qui montre aussi la stack.',
+    tagline: 'Le site sur lequel vous êtes.',
     description:
       'Front Angular pré-rendu (SEO, partage LinkedIn) et API Spring Boot pour le formulaire de contact.',
     highlights: [
-      'API de contact : validation Bean Validation, anti-spam (honeypot + limite par IP), erreurs au format RFC 9457.',
+      'API de contact avec Bean Validation, anti-spam (honeypot et limite par IP) et erreurs au format RFC 9457.',
       'Tests JUnit 5 / Mockito / MockMvc côté API, Vitest côté Angular.',
       'Image Docker multi-étapes et CI GitHub Actions sur les deux applications.',
     ],
@@ -310,14 +310,14 @@ export const WAYS_OF_WORKING = ['Scrum', 'Revues de code', 'Tests avant mise en 
 export const EDUCATION = [
   {
     year: 2025,
-    degree: 'Master Informatique — Systèmes embarqués, spécialité IoT',
+    degree: 'Master Informatique, Systèmes embarqués (spécialité IoT)',
     school: 'Université Marie et Louis Pasteur, Montbéliard',
   },
   {
     year: 2023,
-    degree: 'Licence Génie Logiciel et Systèmes d’Information',
+    degree: "Licence Génie Logiciel et Systèmes d'Information",
     school: 'École Supérieure Polytechnique (UCAD), Dakar',
   },
 ];
 
-export const LANGUAGES = ['Français — langue maternelle', 'Anglais — courant (C1)'];
+export const LANGUAGES = ['Français (langue maternelle)', 'Anglais courant (C1)'];

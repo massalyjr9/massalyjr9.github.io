@@ -83,7 +83,7 @@ h3 {
   font-size: 17px;
 }
 .highlights li::before {
-  content: '—';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--gold);

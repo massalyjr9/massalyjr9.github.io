@@ -38,5 +38,5 @@ export function formatPeriod(start: string, end: string): string {
   const b = parse(end);
   const from = `${MONTHS[a.month - 1]} ${a.year}`;
   const to = `${MONTHS[b.month - 1]} ${b.year}`;
-  return a.year === b.year ? `${MONTHS[a.month - 1]} – ${to}` : `${from} – ${to}`;
+  return a.year === b.year ? `${MONTHS[a.month - 1]} - ${to}` : `${from} - ${to}`;
 }

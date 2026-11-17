@@ -1,7 +1,7 @@
 <section class="section contact" id="contact" aria-labelledby="contact-title">
   <div class="section-inner">
-    <p class="label">04 — Contact</p>
-    <h2 class="section-title" id="contact-title">Travaillons <em>ensemble</em>.</h2>
+    <p class="label">04. Contact</p>
+    <h2 class="section-title" id="contact-title">Me <em>contacter</em>.</h2>
     <p class="intro" appReveal>
       Je cherche un CDI de développeur Full Stack Java / Angular, à Lyon ou en télétravail.
       Laissez-moi un message, je vous réponds rapidement.
@@ -48,11 +48,11 @@
 
         <div class="submit">
           <button class="btn btn-primary" type="submit" [disabled]="status() === 'sending'">
-            {{ status() === 'sending' ? 'Envoi…' : 'Envoyer' }}
+            {{ status() === 'sending' ? 'Envoi...' : 'Envoyer' }}
           </button>
           <p class="status" role="status" aria-live="polite">
             @switch (status()) {
-              @case ('sending') { <span>Envoi en cours, cela peut prendre quelques secondes…</span> }
+              @case ('sending') { <span>Envoi en cours, cela peut prendre quelques secondes...</span> }
               @case ('sent') { <span class="ok">Message envoyé, merci. Je vous réponds rapidement.</span> }
               @case ('invalid') { <span class="ko">Certains champs sont invalides.</span> }
               @case ('rate-limited') { <span class="ko">Trop de messages envoyés. Réessayez dans une heure.</span> }

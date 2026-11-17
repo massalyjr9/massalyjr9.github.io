@@ -21,8 +21,8 @@ describe('duration', () => {
   });
 
   it('formate une période', () => {
-    expect(formatPeriod('2023-09', '2024-09')).toBe('sept. 2023 – sept. 2024');
-    expect(formatPeriod('2025-01', '2025-08')).toBe('janv. – août 2025');
+    expect(formatPeriod('2023-09', '2024-09')).toBe('sept. 2023 - sept. 2024');
+    expect(formatPeriod('2025-01', '2025-08')).toBe('janv. - août 2025');
   });
 
   it("calcule l'expérience affichée sur le site à partir des missions", () => {

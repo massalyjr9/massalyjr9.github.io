@@ -82,7 +82,7 @@ h3 {
   font-size: 17px;
 }
 .bullets li::before {
-  content: '—';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--gold);

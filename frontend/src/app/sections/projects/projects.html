@@ -1,7 +1,7 @@
 <section class="section" id="projets" aria-labelledby="projets-title">
   <div class="section-inner">
-    <p class="label">01 — Projets</p>
-    <h2 class="section-title" id="projets-title">Ce que j'ai <em>construit</em>.</h2>
+    <p class="label">01. Projets</p>
+    <h2 class="section-title" id="projets-title">Mes <em>projets</em>.</h2>
 
     <div class="featured">
       @for (project of featured; track project.name; let i = $index) {
@@ -9,7 +9,7 @@
           @if (project.gallery?.length) {
             <app-gallery class="shot-gallery" [images]="project.gallery!" [label]="'Présentation de ' + project.name" />
           } @else if (project.image) {
-            <img class="shot" [src]="project.image" width="1200" height="750" loading="lazy" [alt]="'Capture d’écran de ' + project.name" />
+            <img class="shot" [src]="project.image" width="1200" height="750" loading="lazy" [alt]="'Capture d\'écran de ' + project.name" />
           } @else {
             <div class="shot placeholder" aria-hidden="true">
               <span>{{ project.name }}</span>
@@ -40,7 +40,7 @@
               @if (project.repoUrl) {
                 <a class="link-arrow" [href]="project.repoUrl" target="_blank" rel="noopener">Code sur GitHub ↗</a>
               } @else if (project.repoPrivate) {
-                <span class="private">Dépôt privé — code présenté sur demande</span>
+                <span class="private">Dépôt privé, code disponible sur demande</span>
               }
             </p>
           </div>
